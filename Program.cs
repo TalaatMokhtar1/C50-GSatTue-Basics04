@@ -80,21 +80,45 @@
             // with double[] prices = { 25.5, 40.0 }; and print prices[0] afterward. What do you expect to
             // see, and why?
 
-            double[] prices = { 25.5, 40.0 };
+            //double[] prices = { 25.5, 40.0 };
 
-            ApplyDiscount(prices);
-            Console.WriteLine(prices[0]);
+            //ApplyDiscount(prices);
+            //Console.WriteLine(prices[0]);
 
-            static void ApplyDiscount(double[] prices)
-            {
-                prices[0] = prices[0] - 5;
-            }
+            //static void ApplyDiscount(double[] prices)
+            //{
+            //    prices[0] = prices[0] - 5;
+            //}
 
             // المفروض برضو يطبع: 20.5
             // السبب: لأن ال array نوع Reference Type، فلما اتبعتت By Value الـ method أخدت نسخة
             // من العنوان (reference) بس، يعني الاتنين بيشاوروا على نفس الـ array في الـ Heap.
             // فلما عدّلنا prices[0] جوا الـ method، التعديل سمّع في الـ array الأصلية.
+
             #endregion
+
+            #region Question 7
+            // 7 - Rewrite the method from question 5 as AddBonusPagesByRef(ref int pages) using ref.
+            // Call it and print pages afterward. How is the result different from question 5?
+
+            int pages = 400;
+
+            AddBonusPagesByRef(ref pages);
+            Console.WriteLine(pages);
+
+            static void AddBonusPagesByRef(ref int pages)
+            {
+                pages = pages + 50;
+            }
+
+            // الناتج المره دي : 450 (عكس سؤال 5 اللي كانت 400)
+            // الفرق: لما استخدمنا ref بعتنا المتغير الأصلي نفسه (reference ليه في ال Stack) مش نسخة منه،
+            // فالزيادة (+50) عدّلت على pages الأصلية اللي في Main مباشرة وبقت 450.
+
+            #endregion
+
+
+
 
 
 
