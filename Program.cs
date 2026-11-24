@@ -45,13 +45,37 @@
             // 4 - Write a method PrintBookTitle(string title) that prints "Book title: " + title.
             // Call it with "Clean Code".
 
-            PrintBookTitle("Clean Code");
+            //PrintBookTitle("Clean Code");
 
-            static void PrintBookTitle(string title)
-            {
-                Console.WriteLine("Book title: " + title);
-            }
+            //static void PrintBookTitle(string title)
+            //{
+            //    Console.WriteLine("Book title: " + title);
+            //}
+
             #endregion
+
+            #region Question 5
+            // 5 - Write a method AddBonusPages(int pages) that adds 50 to pages. Call it with a variable
+            // int pages = 400; and print pages afterward. What do you expect to see, and why?
+
+            int pages = 400;
+
+            AddBonusPages(pages);
+            Console.WriteLine(pages);
+
+            static void AddBonusPages(int pages)
+            {
+                pages = pages + 50;
+            }
+
+            // المفروض يطبع: 400
+            // السبب: لأن int نوع Value Type واتبعت By Value (من غير ref)
+            // فالـ method أخدت نسخة (copy) بس من pages، والزيادة (+50) حصلت على النسخة
+            // والمتغير الأصلي في Main فضل 400 زي ما هو.
+
+            #endregion
+
+
 
 
 
