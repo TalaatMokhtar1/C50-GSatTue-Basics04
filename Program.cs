@@ -58,22 +58,44 @@
             // 5 - Write a method AddBonusPages(int pages) that adds 50 to pages. Call it with a variable
             // int pages = 400; and print pages afterward. What do you expect to see, and why?
 
-            int pages = 400;
+            //int pages = 400;
 
-            AddBonusPages(pages);
-            Console.WriteLine(pages);
+            //AddBonusPages(pages);
+            //Console.WriteLine(pages);
 
-            static void AddBonusPages(int pages)
-            {
-                pages = pages + 50;
-            }
+            //static void AddBonusPages(int pages)
+            //{
+            //    pages = pages + 50;
+            //}
 
             // المفروض يطبع: 400
             // السبب: لأن int نوع Value Type واتبعت By Value (من غير ref)
-            // فالـ method أخدت نسخة (copy) بس من pages، والزيادة (+50) حصلت على النسخة
+            // فالـ method أخدت نسخة (copy) بس من pages، والزيادة (+50) بقت على النسخة
             // والمتغير الأصلي في Main فضل 400 زي ما هو.
 
             #endregion
+
+            #region Question 6
+            // 6 - Write a method ApplyDiscount(double[] prices) that subtracts 5 from prices[0]. Call it
+            // with double[] prices = { 25.5, 40.0 }; and print prices[0] afterward. What do you expect to
+            // see, and why?
+
+            double[] prices = { 25.5, 40.0 };
+
+            ApplyDiscount(prices);
+            Console.WriteLine(prices[0]);
+
+            static void ApplyDiscount(double[] prices)
+            {
+                prices[0] = prices[0] - 5;
+            }
+
+            // المفروض برضو يطبع: 20.5
+            // السبب: لأن ال array نوع Reference Type، فلما اتبعتت By Value الـ method أخدت نسخة
+            // من العنوان (reference) بس، يعني الاتنين بيشاوروا على نفس الـ array في الـ Heap.
+            // فلما عدّلنا prices[0] جوا الـ method، التعديل سمّع في الـ array الأصلية.
+            #endregion
+
 
 
 
