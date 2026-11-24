@@ -101,15 +101,15 @@
             // 7 - Rewrite the method from question 5 as AddBonusPagesByRef(ref int pages) using ref.
             // Call it and print pages afterward. How is the result different from question 5?
 
-            int pages = 400;
+            //int pages = 400;
 
-            AddBonusPagesByRef(ref pages);
-            Console.WriteLine(pages);
+            //AddBonusPagesByRef(ref pages);
+            //Console.WriteLine(pages);
 
-            static void AddBonusPagesByRef(ref int pages)
-            {
-                pages = pages + 50;
-            }
+            //static void AddBonusPagesByRef(ref int pages)
+            //{
+            //    pages = pages + 50;
+            //}
 
             // الناتج المره دي : 450 (عكس سؤال 5 اللي كانت 400)
             // الفرق: لما استخدمنا ref بعتنا المتغير الأصلي نفسه (reference ليه في ال Stack) مش نسخة منه،
@@ -117,6 +117,22 @@
 
             #endregion
 
+            #region Question 8
+            // 8 - Write a method ReplaceArray(ref double[] prices) that replaces prices entirely with a
+            // new array { 10.0, 12.5, 15.0 }. Call it with your prices array and print prices.Length
+            // afterward.
+
+            double[] prices = { 25.5, 40.0 };
+
+            ReplaceArray(ref prices);
+            Console.WriteLine(prices.Length);
+
+            static void ReplaceArray(ref double[] prices)
+            {
+                prices = new double[] { 10.0, 12.5, 15.0 };
+            }
+
+            #endregion
 
 
 
